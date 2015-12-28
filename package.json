@@ -1,7 +1,7 @@
 {
   "name": "city-weather",
   "private": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Get weather basic info from some city",
   "main": "index.js",
   "scripts": {
@@ -14,10 +14,13 @@
     "climate",
     "meteorology"
   ],
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/Thor99/city-weather"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Thor99/city-weather"
   },
   "author": "Thor Garcia <thor.fc21@gmail.com> (https://github.com/thor99)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.67.0"
+  }
 }
