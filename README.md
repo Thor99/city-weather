@@ -1,4 +1,4 @@
-# City-Wheater
+# City-Weather
 
 Check some basic weather info from some cities, provided by the Open Weather Map API!
 
@@ -8,7 +8,7 @@ Check some basic weather info from some cities, provided by the Open Weather Map
 
 ``` js
 
-npm install city-wheater --save
+npm install city-weather --save
 
 ```
 
@@ -30,7 +30,7 @@ getClimateDescription(city, callback);
 
 ``` js
 
-var climate = require('city-wheater');
+var climate = require('city-weather');
 
 climate.getMaximumTemp('Rio de janeiro', function(temp){
     console.log("Maximum temperature: " + temp);
