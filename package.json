@@ -10,7 +10,9 @@
   "keywords": [
     "weather",
     "city",
-    "temperature"
+    "temperature",
+    "climate",
+    "meteorology"
   ],
   "repository" : {
     "type" : "git",
