@@ -16,13 +16,25 @@ npm install city-weather --save
 
 ## API
 
-getMaximumTemp(city, callback);
+### getMaximumTemp(city, callback);
 
-getMinimumTemp(city, callback);
+Returns the city maximum temperature of the day, in Celsius.
 
-getActualTemp(city, callback);
+### getMinimumTemp(city, callback);
 
-getClimateDescription(city, callback);
+Returns the city minimum temperature of the day, in Celsius.
+
+### getActualTemp(city, callback);
+
+Returns the city actual temperature, in Celsius.
+
+### getClimateDescription(city, callback);
+
+Returns the city climate description of the moment.
+
+### getWindSpeed(city, callback);
+
+Returns the city wind speed of the moment, in m/s.
 
 ---
 
@@ -46,6 +58,10 @@ climate.getActualTemp('Rio de janeiro', function(temp){
 
 climate.getClimateDescription('Rio de janeiro', function(description){
     console.log("Climate description: " + description);
+});
+
+climate.getWindSpeed('Rio de janeiro', function(speed){
+    console.log("Wind speed: " + speed);
 });
 
 ```
