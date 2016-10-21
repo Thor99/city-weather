@@ -1,8 +1,7 @@
-# City-Weather
+# City Weather
 
-Check some basic weather info from some cities, provided by the Open Weather Map API!
+Get weather information for specific cities, provided by Open Weather Map's API.
 
----
 
 ## Install
 
@@ -12,56 +11,54 @@ npm install city-weather --save
 
 ```
 
----
 
 ## API
 
 ### getMaximumTemp(city, callback);
 
-Returns the city maximum temperature of the day, in Celsius.
+Returns the maximum temperature of the day for that city, in Celsius.
 
 ### getMinimumTemp(city, callback);
 
-Returns the city minimum temperature of the day, in Celsius.
+Returns the minimum temperature of the day for that city, in Celsius.
 
 ### getActualTemp(city, callback);
 
-Returns the city actual temperature, in Celsius.
+Returns the actual temperature in that city, in Celsius.
 
 ### getClimateDescription(city, callback);
 
-Returns the city climate description of the moment.
+Returns the current climate description for that city.
 
 ### getWindSpeed(city, callback);
 
-Returns the city wind speed of the moment, in m/s.
+Returns the current wind speed at that city, in m/s.
 
----
 
 ## Usage
 
 ``` js
 
-var climate = require('city-weather');
+const climate = require('city-weather');
 
-climate.getMaximumTemp('Rio de janeiro', function(temp){
-    console.log("Maximum temperature: " + temp);
+climate.getMaximumTemp('Rio de janeiro', (temp) => {
+  console.log(`Maximum temperature: ${temp}`);
 });
 
-climate.getMinimumTemp('Rio de janeiro', function(temp){
-    console.log("Minimum temperature: " + temp);
+climate.getMinimumTemp('Rio de janeiro', (temp) => {
+  console.log(`Minimum temperature: ${temp}`);
 });
 
-climate.getActualTemp('Rio de janeiro', function(temp){
-    console.log("Actual temperature: " + temp);
+climate.getActualTemp('Rio de janeiro', (temp) => {
+  console.log(`Actual temperature: ${temp}`);
 });
 
-climate.getClimateDescription('Rio de janeiro', function(description){
-    console.log("Climate description: " + description);
+climate.getClimateDescription('Rio de janeiro', (description) => {
+  console.log(`Climate description: ${description}`);
 });
 
-climate.getWindSpeed('Rio de janeiro', function(speed){
-    console.log("Wind speed: " + speed);
+climate.getWindSpeed('Rio de janeiro', (speed) => {
+  console.log(`Wind speed: ${speed}`);
 });
 
 ```
