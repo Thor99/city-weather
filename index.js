@@ -1,30 +1,23 @@
-/* Requires */
 const request = require('request');
 
-
-/* Variables */
 const APP_ID = '59f807307ebf813df0c1dd3647242945';
 const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather?q=';
 
+const getRequestOptions = city => ({
+  url: `${BASE_URL}${city}&APPID=${APP_ID}`,
+  headers: {
+    'User-Agent': 'agentWeatherrApi'
+  }
+})
 
-/* Helpers */
-function getWordWithoutSomething(str, find, replace) {
-  return str.replace(new RegExp(find, 'g'), replace);
-}
-
-
-/* Methods */
+const getWordWithoutSomething = (str, find, replace) =>
+  str.replace(new RegExp(find, 'g'), replace);
 
 // Get maximum temperature
 exports.getMaximumTemp = (city, callback) => {
   city = getWordWithoutSomething(city.trim(), ' ', '-');
 
-  let options = {
-    url: `${BASE_URL}${city}&APPID=${APP_ID}`,
-    headers: {
-      'User-Agent': 'agentWeatherrApi'
-    }
-  }
+  const options = getRequestOptions(city)
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -41,12 +34,7 @@ exports.getMaximumTemp = (city, callback) => {
 exports.getMinimumTemp = (city, callback) => {
   city = getWordWithoutSomething(city.trim(), ' ', '-');
 
-  let options = {
-    url: `${BASE_URL}${city}&APPID=${APP_ID}`,
-    headers: {
-      'User-Agent': 'agentWeatherrApi'
-    }
-  }
+  const options = getRequestOptions(city)
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -63,12 +51,7 @@ exports.getMinimumTemp = (city, callback) => {
 exports.getActualTemp = (city, callback) => {
   city = getWordWithoutSomething(city.trim(), ' ', '-');
 
-  let options = {
-    url: `${BASE_URL}${city}&APPID=${APP_ID}`,
-    headers: {
-      'User-Agent': 'agentWeatherrApi'
-    }
-  }
+  const options = getRequestOptions(city)
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -85,12 +68,7 @@ exports.getActualTemp = (city, callback) => {
 exports.getClimateDescription = (city, callback) => {
   city = getWordWithoutSomething(city.trim(), ' ', '-');
 
-  let options = {
-    url: `${BASE_URL}${city}&APPID=${APP_ID}`,
-    headers: {
-      'User-Agent': 'agentWeatherrApi'
-    }
-  }
+  const options = getRequestOptions(city)
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -107,12 +85,7 @@ exports.getClimateDescription = (city, callback) => {
 exports.getWindSpeed = (city, callback) => {
   city = getWordWithoutSomething(city.trim(), ' ', '-');
 
-  let options = {
-    url: `${BASE_URL}${city}&APPID=${APP_ID}`,
-    headers: {
-      'User-Agent': 'agentWeatherrApi'
-    }
-  }
+  const options = getRequestOptions(city)
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
