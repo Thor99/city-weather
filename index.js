@@ -8,16 +8,11 @@ const getRequestOptions = city => ({
   headers: {
     'User-Agent': 'agentWeatherrApi'
   }
-})
-
-const getWordWithoutSomething = (str, find, replace) =>
-  str.replace(new RegExp(find, 'g'), replace);
+});
 
 // Get maximum temperature
 exports.getMaximumTemp = (city, callback) => {
-  city = getWordWithoutSomething(city.trim(), ' ', '-');
-
-  const options = getRequestOptions(city)
+  const options = getRequestOptions(city.trim());
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -32,9 +27,7 @@ exports.getMaximumTemp = (city, callback) => {
 
 // Get minimum temperature
 exports.getMinimumTemp = (city, callback) => {
-  city = getWordWithoutSomething(city.trim(), ' ', '-');
-
-  const options = getRequestOptions(city)
+  const options = getRequestOptions(city.trim());
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -49,9 +42,7 @@ exports.getMinimumTemp = (city, callback) => {
 
 // Get actual temperature
 exports.getActualTemp = (city, callback) => {
-  city = getWordWithoutSomething(city.trim(), ' ', '-');
-
-  const options = getRequestOptions(city)
+  const options = getRequestOptions(city.trim());
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -66,9 +57,7 @@ exports.getActualTemp = (city, callback) => {
 
 // Get climate description
 exports.getClimateDescription = (city, callback) => {
-  city = getWordWithoutSomething(city.trim(), ' ', '-');
-
-  const options = getRequestOptions(city)
+  const options = getRequestOptions(city.trim());
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -83,9 +72,7 @@ exports.getClimateDescription = (city, callback) => {
 
 // Get wind speed
 exports.getWindSpeed = (city, callback) => {
-  city = getWordWithoutSomething(city.trim(), ' ', '-');
-
-  const options = getRequestOptions(city)
+  const options = getRequestOptions(city.trim());
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
