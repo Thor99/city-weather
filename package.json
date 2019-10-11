@@ -22,7 +22,7 @@
   "author": "Thor Garcia <thor.fc21@gmail.com> (https://github.com/thor99)",
   "contributors": [
     "Igor Antun <igor@antun.me> (https://github.com/IgorAntun)"
-  ]
+  ],
   "license": "MIT",
   "dependencies": {
     "request": "^2.67.0"
