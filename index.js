@@ -25,7 +25,7 @@ exports.getMaximumTemp = (city, callback) => {
     if(data['message'] != undefined) {
       return callback('City not found');
     } else {
-      return callback(parseInt(data['main']['temp_max'] - 273));
+      return callback(null, parseInt(data['main']['temp_max'] - 273));
     }
   });
 };
@@ -42,7 +42,7 @@ exports.getMinimumTemp = (city, callback) => {
     if(data['message'] != undefined) {
        return callback('City not found');
     } else {
-      return callback(parseInt(data['main']['temp_min'] - 273));
+      return callback(null, parseInt(data['main']['temp_min'] - 273));
     }
   });
 };
@@ -59,7 +59,7 @@ exports.getActualTemp = (city, callback) => {
     if(data['message'] != undefined) {
       return callback('City not found');
     } else {
-      return callback(parseInt(data['main']['temp'] - 273));
+      return callback(null, parseInt(data['main']['temp'] - 273));
     }
   });
 };
@@ -76,7 +76,7 @@ exports.getClimateDescription = (city, callback) => {
     if(data['message'] != undefined) {
       return callback('City not found');
     } else {
-      return callback(data['weather'][0]['description']);
+      return callback(null, data['weather'][0]['description']);
     }
   });
 };
@@ -93,7 +93,7 @@ exports.getWindSpeed = (city, callback) => {
     if(data['message'] != undefined) {
       return callback('City not found');
     } else {
-      return callback(data['wind']['speed']);
+      return callback(null, data['wind']['speed']);
     }
   });
 };
