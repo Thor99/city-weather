@@ -8,16 +8,11 @@ const getRequestOptions = city => ({
   headers: {
     'User-Agent': 'agentWeatherrApi'
   }
-})
-
-const getWordWithoutSomething = (str, find, replace) =>
-  str.replace(new RegExp(find, 'g'), replace);
+});
 
 // Get maximum temperature
 exports.getMaximumTemp = (city, callback) => {
-  city = getWordWithoutSomething(city.trim(), ' ', '-');
-
-  const options = getRequestOptions(city)
+  const options = getRequestOptions(city.trim());
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -25,16 +20,14 @@ exports.getMaximumTemp = (city, callback) => {
     if(data['message'] != undefined) {
       return callback('City not found');
     } else {
-      return callback(parseInt(data['main']['temp_max'] - 273));
+      return callback(null, parseInt(data['main']['temp_max'] - 273));
     }
   });
 };
 
 // Get minimum temperature
 exports.getMinimumTemp = (city, callback) => {
-  city = getWordWithoutSomething(city.trim(), ' ', '-');
-
-  const options = getRequestOptions(city)
+  const options = getRequestOptions(city.trim());
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -42,16 +35,14 @@ exports.getMinimumTemp = (city, callback) => {
     if(data['message'] != undefined) {
        return callback('City not found');
     } else {
-      return callback(parseInt(data['main']['temp_min'] - 273));
+      return callback(null, parseInt(data['main']['temp_min'] - 273));
     }
   });
 };
 
 // Get actual temperature
 exports.getActualTemp = (city, callback) => {
-  city = getWordWithoutSomething(city.trim(), ' ', '-');
-
-  const options = getRequestOptions(city)
+  const options = getRequestOptions(city.trim());
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -59,16 +50,14 @@ exports.getActualTemp = (city, callback) => {
     if(data['message'] != undefined) {
       return callback('City not found');
     } else {
-      return callback(parseInt(data['main']['temp'] - 273));
+      return callback(null, parseInt(data['main']['temp'] - 273));
     }
   });
 };
 
 // Get climate description
 exports.getClimateDescription = (city, callback) => {
-  city = getWordWithoutSomething(city.trim(), ' ', '-');
-
-  const options = getRequestOptions(city)
+  const options = getRequestOptions(city.trim());
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -76,16 +65,14 @@ exports.getClimateDescription = (city, callback) => {
     if(data['message'] != undefined) {
       return callback('City not found');
     } else {
-      return callback(data['weather'][0]['description']);
+      return callback(null, data['weather'][0]['description']);
     }
   });
 };
 
 // Get wind speed
 exports.getWindSpeed = (city, callback) => {
-  city = getWordWithoutSomething(city.trim(), ' ', '-');
-
-  const options = getRequestOptions(city)
+  const options = getRequestOptions(city.trim());
 
   request(options, (error, response, body) => {
     let data = JSON.parse(body);
@@ -93,7 +80,7 @@ exports.getWindSpeed = (city, callback) => {
     if(data['message'] != undefined) {
       return callback('City not found');
     } else {
-      return callback(data['wind']['speed']);
+      return callback(null, data['wind']['speed']);
     }
   });
 };
